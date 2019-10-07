@@ -13,13 +13,13 @@
 
         <div class="content">
             <div ref="leftContent" class="left-content">
-                <div @click="nextFeature">next</div>
-                <div @click="previousFeature">previous</div>
                 <div class="fixed-left">
                     <div v-for="(feature, index) in features" :key="index" class="feature" :class="{'active': feature.active}">
                         <div class="title">{{feature.title}}</div>
                         <div class="details" :class="{'show': feature.active}">
-                            <div v-for="(detail, index) in feature.details" :key="index">{{detail}}</div>
+                            <wwLayoutColumn tag="div" ww-default="ww-text" :ww-list="feature.details" class="list" @ww-add="add(feature.details, $event)" @ww-remove="remove(feature.details, $event)">
+                                <wwObject tag="div" v-for="object in feature.details" :key="object.uniqueId" :ww-object="object"></wwObject>
+                            </wwLayoutColumn>
                         </div>
                     </div>
                 </div>
@@ -50,21 +50,21 @@ export default {
             activeFeatureIndex: 0,
             features: [
                 {
-                    active: false,
+                    active: true,
                     title: 'BUILD',
-                    details: ['Enjoy a library of responsive components ready to be used for your front-end, all open-source'],
+                    details: [],
                     contents: []
                 },
                 {
                     active: false,
                     title: 'BUILD',
-                    details: ['Enjoy a library of responsive components ready to be used for your front-end, all open-source'],
+                    details: [],
 
                 },
                 {
                     active: false,
                     title: 'BUILD',
-                    details: ['Enjoy a library of responsive components ready to be used for your front-end, all open-source'],
+                    details: [],
                 }
             ],
             lastScrollTop: 0,
@@ -104,15 +104,9 @@ export default {
 
     },
     mounted() {
-        console.log('tata :', this.$el.scrollTop, wwLib.getFrontDocument().body.scrollTop)
-        // setInterval(() => {
-        //     this.active = !this.active;
-        // }, 4000);
-
         this.activeFeature = this.$refs[`content_${this.activeFeatureIndex}`]
         let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop
         window.addEventListener('scroll', this.onScroll)
-        console.log('ref', this.$refs['content_1'])
     },
     beforeDestroy() {
         window.removeEventListener('scroll', this.onScroll)
@@ -137,64 +131,57 @@ export default {
         },
         /* wwManager:end */
         onScroll(event) {
-            // console.log('event', event, window.innerHeight, this.$el.getBoundingClientRect().top)
-            console.log(this.activeFeatureIndex)
-            console.log(this.$refs[`content_${this.activeFeatureIndex}`].getBoundingClientRect().top, window.innerHeight / 2, this.onTheMove)
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
             if (scrollTop > this.lastScrollTop) {
                 // scrolling down
-                if (Math.round(this.$refs[`content_${this.activeFeatureIndex}`].getBoundingClientRect().top) < Math.round(window.innerHeight / 2) && !this.onTheMove) {
-                    this.onTheMove = true;
-                    this.nextFeature()
+                if (this.activeFeatureIndex == this.features.length - 1) return;
+
+                let featureWatched = this.$refs[`content_${(this.activeFeatureIndex + 1)}`]
+                if (Math.round(featureWatched.getBoundingClientRect().top) < Math.round(window.innerHeight / 2)) {
+                    this.nextFeature('next')
                 }
 
             } else {
                 // scrolling up
-                if (Math.round(this.$refs[`content_${this.activeFeatureIndex}`].getBoundingClientRect().top) > Math.round(window.innerHeight / 2) && !this.onTheMove) {
+                if (this.activeFeatureIndex == 0) return;
+
+                let featureWatched = this.$refs[`content_${(this.activeFeatureIndex)}`]
+                if (Math.round(featureWatched.getBoundingClientRect().top) > Math.round(window.innerHeight / 2) && !this.onTheMove) {
                     this.onTheMove = true;
-                    this.previousFeature()
+                    this.previousFeature('previous')
                 }
             }
             this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
-            // if top pass the line at scroll down next
-            // if top pass the line at scroll down up previous
         },
-        nextFeature() {
-            console.log('next')
-            // First time
-            if (this.activeFeatureIndex == 0) {
-                this.features[this.activeFeatureIndex].active = true;
-                this.activeFeatureIndex++
-                this.onTheMove = false;
-                return;
-            }
-            // After
+        restartScrollListerner() {
+            window.removeEventListener('scroll', this.onScroll)
+            window.addEventListener('scroll', this.onScroll)
+        },
+        nextFeature(direction) {
             this.features[this.activeFeatureIndex].active = false;
-            if (this.activeFeatureIndex == this.features.length - 1) return;
-
-
-
-            setTimeout(() => {
-                this.activeFeatureIndex++
-                this.activeFeature = this.$refs[`content_${this.activeFeatureIndex}`]
+            if (direction == 'next') {
+                this.activeFeatureIndex++;
+            } else {
+                this.activeFeatureIndex--;
+            }
+            this.restartScrollListerner()
+            clearTimeout(this.activeTimout)
+            this.activeTimout = setTimeout(() => {
+                this.activeFeature = this.$refs[`content_${this.activeFeatureIndex}`];
                 this.features[this.activeFeatureIndex].active = true;
-                this.onTheMove = false;
             }, 600);
         },
         previousFeature() {
-            console.log('previous')
+
             this.features[this.activeFeatureIndex].active = false;
-            if (this.activeFeatureIndex == 0) {
-                this.onTheMove = false;
-                return;
-            }
-            this.activeFeatureIndex--;
-            this.activeFeature = this.$refs[`content_${this.activeFeatureIndex}`]
             setTimeout(() => {
+                this.activeFeatureIndex--;
+                this.activeFeature = this.$refs[`content_${this.activeFeatureIndex}`];
                 this.features[this.activeFeatureIndex].active = true;
                 this.onTheMove = false;
+                this.restartScrollListerner();
             }, 600);
-
         }
     }
 };
