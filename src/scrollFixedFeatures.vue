@@ -4,18 +4,18 @@
 
 <!-- This is your HTML -->
 <template>
-    <div class="scroll-fixed-features">
+    <div class="scroll-fixed-features" :style="customStyle">
         <!-- wwManager:start -->
         <wwSectionEditMenu v-bind:sectionCtrl="sectionCtrl"></wwSectionEditMenu>
         <!-- wwManager:end -->
         <!-- Weweb Wallpaper -->
-        <wwObject class="background" v-bind:ww-object="section.data.color" ww-category="background"></wwObject>
+        <wwObject class="background" v-bind:ww-object="section.data.background" ww-category="background"></wwObject>
 
         <div class="content">
             <div ref="leftContent" class="left-content">
                 <div class="fixed-left-container">
                     <div class="fixed-left">
-                        <div v-for="(feature, index) in features" :key="index" class="feature" :class="{'active': feature.active}">
+                        <div v-for="(feature, index) in section.data.features" :key="index" class="feature" :class="{'active': index == activeFeatureIndex && !onTheMove}">
                             <div class="title">
                                 <div v-if="editMode" class="contextmenu-container">
                                     <div class="index">{{index + 1}}</div>
@@ -23,15 +23,18 @@
                                         <div class="wwi wwi-config"></div>
                                     </wwContextMenu>
                                 </div>
-                                <div v-if="editMode" class="toggle-active">
+                                <div v-if="editMode" class="toggle-active" @click="setFeatureActive(index)">
                                     <label>
-                                        <input type="checkbox" v-model="feature.active" />
+                                        <div class="toggle" :class="{'active':index == activeFeatureIndex}"></div>
                                         <span class="check"></span>
                                     </label>
                                 </div>
-                                <wwObject v-bind:ww-object="feature.title"></wwObject>
+                                <div class="text-container">
+                                    <wwObject class="text" :class="{'active':index != activeFeatureIndex}" v-bind:ww-object="feature.title"></wwObject>
+                                    <wwObject class="text" :class="{'active':index == activeFeatureIndex}" v-bind:ww-object="feature.activeTitle"></wwObject>
+                                </div>
                             </div>
-                            <div class="details" :class="{'show': feature.active}">
+                            <div :ref="`detail_${index}`" class="details" :class="{'show': index == activeFeatureIndex && !onTheMove}">
                                 <wwLayoutColumn tag="div" ww-default="ww-text" :ww-list="feature.details" class="list" @ww-add="add(feature.details, $event)" @ww-remove="remove(feature.details, $event)">
                                     <wwObject tag="div" v-for="object in feature.details" :key="object.uniqueId" :ww-object="object"></wwObject>
                                 </wwLayoutColumn>
@@ -40,9 +43,11 @@
                     </div>
                 </div>
                 <div class="fixed-right-container">
-                    <div class="fixed-right">
-                        <wwObject v-bind:ww-object="features[activeFeatureIndex].rightBackground"></wwObject>
-                    </div>
+                    <transition name="fade">
+                        <div class="fixed-right">
+                            <wwObject class="bg" :class="{'active':index == activeFeatureIndex}" v-for="(feature, index) in section.data.features" :key="index" v-bind:ww-object="feature.rightBackground"></wwObject>
+                        </div>
+                    </transition>
                 </div>
             </div>
             <div ref="rightContent" class="right-content">
@@ -73,18 +78,10 @@ export default {
     data() {
         return {
             activeFeatureIndex: 0,
-            test: false,
-            features: [
-                {
-                    active: false,
-                    title: null,
-                    details: [],
-                    contents: [],
-                    rightBackground: {}
-                }
-            ],
             lastScrollTop: 0,
-            onTheMove: false
+            onTheMove: false,
+            features: [],
+            activeHeight: '200'
         }
     },
     computed: {
@@ -93,62 +90,76 @@ export default {
         },
         editMode() {
             return this.sectionCtrl.getEditMode() == 'CONTENT'
+        },
+        customStyle() {
+
+            return {
+                '--activeHeight': `${this.activeHeight + 28}px`
+            }
         }
+
     },
     created() {
 
         //Initialize section data
         let needUpdate = false
-
         this.section.data = this.section.data || {};
+        this.features = this.section.data.features;
 
-        if (!this.section.data.color) {
-            this.section.data.color = wwLib.wwObject.getDefault({
+        if (!this.section.data.background) {
+            this.section.data.background = wwLib.wwObject.getDefault({
                 type: 'ww-color'
             });
             needUpdate = true
         }
-        this.features = this.section.data.features;
-        this.features[0].rightBackground = wwLib.wwObject.getDefault({
-            type: 'ww-image'
-        })
-        setTimeout(() => {
-            console.log(this.section.data.features)
-            this.section.data.features[0].active = true;
-        }, 5000);
-        if (!this.section.data.features[0].title) {
-            this.section.data.features[0].title = wwLib.wwObject.getDefault({
-                type: 'ww-text',
-                data: {
-                    text: {
-                        fr_FR: 'Hello World FR !',
-                        en_GB: 'Hello World !'
-                    }
-                }
 
-            });
+        if (!this.section.data.features) {
+            this.section.data.features = [
+                {
+                    title: wwLib.wwObject.getDefault({
+                        type: 'ww-text',
+                        data: {
+                            fr: 'Nouveau texte',
+                            en: 'New text'
+                        }
+                    }),
+                    activeTitle: wwLib.wwObject.getDefault({
+                        type: 'ww-text',
+                        data: {
+                            fr: 'Nouveau texte',
+                            en: 'New text'
+                        }
+                    }),
+                    details: [],
+                    contents: [],
+                    rightBackground: wwLib.wwObject.getDefault({
+                        type: 'ww-image'
+                    })
+                }
+            ];
             needUpdate = true
         }
-
-
-        if (!this.section.data.list) {
-            this.section.data.list = [];
-            needUpdate = true;
-        }
-
 
         if (needUpdate) {
             this.sectionCtrl.update(this.section);
         }
-
     },
     mounted() {
-        this.activeFeature = this.$refs[`content_${this.activeFeatureIndex}`]
+        // fixed-right-container has to have the same height as the right-content
+        setTimeout(() => {
+            const fixedRightContainerElement = this.$el.querySelector('.fixed-right-container')
+            const rightContainerElement = this.$el.querySelector('.right-content')
+            console.log(fixedRightContainerElement.getBoundingClientRect().height, rightContainerElement.getBoundingClientRect().height)
+        }, 2000);
+
         let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop
         window.addEventListener('scroll', this.onScroll)
     },
     beforeDestroy() {
         window.removeEventListener('scroll', this.onScroll)
+    },
+    beforeSave() {
+
     },
     methods: {
         /* wwManager:start */
@@ -175,15 +186,10 @@ export default {
                 const newFeature = this.getNewFeature()
                 this.section.data.features.splice(index, 0, newFeature);
                 this.sectionCtrl.update(this.section);
-                this.restartScrollListerner()
+                // this.restartScrollListerner()
             } catch (err) {
                 wwLib.wwLog.error('ERROR : ', error);
             }
-        },
-        getNewFeature() {
-            const newFeature = JSON.parse(JSON.stringify(this.section.data.features[0]))
-            wwLib.wwUtils.changeUniqueIds(newFeature)
-            return newFeature
         },
         removeFeature(index) {
             try {
@@ -197,16 +203,32 @@ export default {
                 wwLib.wwLog.error('ERROR : ', error);
             }
         },
+        getNewFeature() {
+            const newFeature = JSON.parse(JSON.stringify(this.section.data.features[0]))
+            wwLib.wwUtils.changeUniqueIds(newFeature)
+            return newFeature
+        },
+        setFeatureActive(index) {
+            if (index == this.activeFeatureIndex) {
+                this.activeFeatureIndex = -1
+                return
+            }
+            this.activeFeatureIndex = index;
+            let activeDetailElement = this.$refs[`detail_${(this.activeFeatureIndex)}`][0]
+            this.activeHeight = activeDetailElement.offsetHeight
+            this.$forceUpdate()
+        },
         /* wwManager:end */
         onScroll(event) {
+            if (this.editMode) return;
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
             if (scrollTop > this.lastScrollTop) {
                 // scrolling down
                 if (this.activeFeatureIndex == this.features.length - 1) return;
 
-                let featureWatched = this.$refs[`content_${(this.activeFeatureIndex + 1)}`]
-                if (Math.round(featureWatched.getBoundingClientRect().top) < Math.round(window.innerHeight / 2)) {
+                let featureWatched = this.$refs[`content_${(this.activeFeatureIndex + 1)}`][0]
+                if (featureWatched && featureWatched.getBoundingClientRect() && Math.round(featureWatched.getBoundingClientRect().top) < Math.round(window.innerHeight / 2)) {
                     this.nextFeature('next')
                 }
 
@@ -214,10 +236,10 @@ export default {
                 // scrolling up
                 if (this.activeFeatureIndex == 0) return;
 
-                let featureWatched = this.$refs[`content_${(this.activeFeatureIndex)}`]
+                let featureWatched = this.$refs[`content_${(this.activeFeatureIndex)}`][0]
                 if (Math.round(featureWatched.getBoundingClientRect().top) > Math.round(window.innerHeight / 2) && !this.onTheMove) {
                     this.onTheMove = true;
-                    this.previousFeature('previous')
+                    this.nextFeature('previous')
                 }
             }
             this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
@@ -227,29 +249,19 @@ export default {
             window.addEventListener('scroll', this.onScroll)
         },
         nextFeature(direction) {
-            this.features[this.activeFeatureIndex].active = false;
+            this.onTheMove = true;
             if (direction == 'next') {
                 this.activeFeatureIndex++;
             } else {
                 this.activeFeatureIndex--;
             }
+            let activeDetailElement = this.$refs[`detail_${(this.activeFeatureIndex)}`][0]
+            this.activeHeight = activeDetailElement.offsetHeight
             this.restartScrollListerner()
             clearTimeout(this.activeTimout)
             this.activeTimout = setTimeout(() => {
-                this.activeFeature = this.$refs[`content_${this.activeFeatureIndex}`];
-                this.features[this.activeFeatureIndex].active = true;
-            }, 600);
-        },
-        previousFeature() {
-
-            this.features[this.activeFeatureIndex].active = false;
-            setTimeout(() => {
-                this.activeFeatureIndex--;
-                this.activeFeature = this.$refs[`content_${this.activeFeatureIndex}`];
-                this.features[this.activeFeatureIndex].active = true;
                 this.onTheMove = false;
-                this.restartScrollListerner();
-            }, 600);
+            }, 400);
         }
     }
 };
@@ -267,7 +279,8 @@ export default {
         position: relative;
         .left-content {
             position: absolute;
-            height: 100vh;
+            min-height: 100vh;
+            height: 100%;
             width: 100%;
             .fixed-left-container {
                 position: absolute;
@@ -283,9 +296,9 @@ export default {
                     .feature {
                         margin-top: 20px;
                         height: 28px;
-                        transition: height 0.6s;
+                        transition: height 0.4s;
                         .details {
-                            transition: transform 0.6s, opacity 0.6s;
+                            transition: transform 0.4s, opacity 0.4s;
                             transform: translate3d(0px, -10px, 0px)
                                 scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg)
                                 rotateZ(0deg) skew(0deg, 0deg);
@@ -299,7 +312,8 @@ export default {
                             }
                         }
                         &.active {
-                            height: 200px;
+                            height: var(--activeHeight);
+                            // height: 200px;
                         }
                     }
                 }
@@ -307,6 +321,7 @@ export default {
             .fixed-right-container {
                 position: absolute;
                 width: 60%;
+                min-height: 100vh;
                 height: 100%;
                 top: 0;
                 right: 0;
@@ -315,10 +330,37 @@ export default {
                     top: 50px;
                     width: 100%;
                     right: 0;
+                    transition: opacity 0.5s;
+                    .bg {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        width: 100%;
+                        opacity: 0;
+                        &.active {
+                            opacity: 1;
+                        }
+                    }
                 }
             }
             .title {
                 position: relative;
+                transition: opacity 0.5s;
+                .text-container {
+                    position: relative;
+                    height: 30px;
+                    .text {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        opacity: 0;
+                        z-index: 1;
+                        &.active {
+                            opacity: 1;
+                            z-index: 2;
+                        }
+                    }
+                }
             }
         }
         .right-background {
@@ -378,7 +420,7 @@ export default {
                 transition: ease-in 0.5s;
             }
 
-            input:checked[type="checkbox"] ~ .check {
+            .active ~ .check {
                 background-color: #19947c;
                 /*   box-shadow: 0 0 0 1200px #092c3e; */
             }
@@ -395,7 +437,7 @@ export default {
                 transition: all 0.5s;
             }
 
-            input:checked[type="checkbox"] ~ .check:before {
+            .active ~ .check:before {
                 // transform: translateX(50px);
                 left: calc(100% - 15px);
                 background-color: #ffffff;
