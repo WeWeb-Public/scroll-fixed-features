@@ -62,6 +62,24 @@
                 </div>
             </div>
         </div>
+
+        <div class="mobile-content">
+            <div class="mobile-feature" v-for="(feature, index) in section.data.features" :key="index">
+                <div class="mobile-title">
+                    <wwObject class="text" :class="{'active':index == activeFeatureIndex}" v-bind:ww-object="feature.activeTitle"></wwObject>
+                </div>
+                <div class="mobile-content">
+                    <wwLayoutColumn tag="div" ww-default="ww-text" :ww-list="feature.contents" class="list" @ww-add="add(feature.contents, $event)" @ww-remove="remove(feature.contents, $event)">
+                        <wwObject tag="div" v-for="object in feature.contents" :key="object.uniqueId" :ww-object="object"></wwObject>
+                    </wwLayoutColumn>
+                </div>
+                <div class="mobile-details">
+                    <wwLayoutColumn tag="div" ww-default="ww-text" :ww-list="feature.details" class="list" @ww-add="add(feature.details, $event)" @ww-remove="remove(feature.details, $event)">
+                        <wwObject tag="div" v-for="object in feature.details" :key="object.uniqueId" :ww-object="object"></wwObject>
+                    </wwLayoutColumn>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -276,6 +294,7 @@ export default {
     pointer-events: all;
     min-height: 100vh;
     .content {
+        display: none;
         position: relative;
         .left-content {
             position: absolute;
@@ -292,6 +311,7 @@ export default {
                 padding-right: 80px;
                 .fixed-left {
                     position: sticky;
+                    padding-top: 150px;
                     top: 50px;
                     .feature {
                         margin-top: 20px;
@@ -339,6 +359,7 @@ export default {
                         opacity: 0;
                         &.active {
                             opacity: 1;
+                            z-index: 2;
                         }
                     }
                 }
@@ -372,6 +393,7 @@ export default {
             position: relative;
             width: 55%;
             margin-left: 40%;
+            padding-top: 150px;
             .content-container {
                 position: relative;
             }
@@ -442,6 +464,15 @@ export default {
                 left: calc(100% - 15px);
                 background-color: #ffffff;
             }
+        }
+        @media (min-width: 992px) {
+            display: block;
+        }
+    }
+    .mobile-content {
+        display: block;
+        @media (min-width: 992px) {
+            display: none;
         }
     }
 }

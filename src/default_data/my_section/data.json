@@ -1,6 +1,6 @@
 {
     "background": {
-        "uniqueId": 8980292957,
+        "uniqueId": 14852825312,
         "wwVersion": 3,
         "content": {
             "type": "ww-color",
@@ -49,7 +49,7 @@
     "features": [
         {
             "title": {
-                "uniqueId": 15115263747,
+                "uniqueId": 14968718140,
                 "wwVersion": 3,
                 "content": {
                     "type": "ww-text",
@@ -95,7 +95,7 @@
                 "anim": {}
             },
             "activeTitle": {
-                "uniqueId": 12823351707,
+                "uniqueId": 10102933827,
                 "wwVersion": 3,
                 "content": {
                     "type": "ww-text",
@@ -142,7 +142,7 @@
             },
             "details": [
                 {
-                    "uniqueId": 6723240749,
+                    "uniqueId": 14838532114,
                     "wwVersion": 3,
                     "content": {
                         "type": "ww-text",
@@ -186,13 +186,13 @@
                     "anim": {}
                 },
                 {
-                    "uniqueId": 5608935326,
+                    "uniqueId": 4359680354,
                     "wwVersion": 3,
                     "content": {
                         "type": "ww-button",
                         "data": {
                             "text": {
-                                "uniqueId": 7724752021,
+                                "uniqueId": 6773459720,
                                 "wwVersion": 3,
                                 "content": {
                                     "type": "ww-text",
@@ -283,14 +283,14 @@
             ],
             "contents": [
                 {
-                    "uniqueId": 6402200507,
+                    "uniqueId": 9826554013,
                     "wwVersion": 3,
                     "content": {
                         "type": "ww-text",
                         "data": {
                             "text": {
                                 "fr": "Nouveau texte",
-                                "en": "<font color=\"#808080\">#READY MADE COMPONENTS</font>"
+                                "en": "<font color=\"#808080\">#ReadyMadeComponents</font>"
                             },
                             "tag": "div",
                             "align": "",
@@ -327,7 +327,7 @@
                     "anim": {}
                 },
                 {
-                    "uniqueId": 9621022264,
+                    "uniqueId": 14474978304,
                     "wwVersion": 3,
                     "content": {
                         "type": "ww-image",
@@ -419,7 +419,7 @@
                 }
             ],
             "rightBackground": {
-                "uniqueId": 5121479912,
+                "uniqueId": 13261927977,
                 "wwVersion": 3,
                 "content": {
                     "type": "ww-image",
@@ -475,10 +475,10 @@
                             50
                         ],
                         "crop": {
-                            "cw": 99.8516733104663,
-                            "ch": 84.16456660610677,
+                            "cw": 99.90089197224975,
+                            "ch": 99.89871201700637,
                             "cx": 0,
-                            "cy": 7.917716696946608
+                            "cy": 0.050643991496807095
                         }
                     }
                 },
@@ -486,7 +486,7 @@
                     "type": "none",
                     "data": {}
                 },
-                "ratio": 123.83677062374245,
+                "ratio": 123.83630217136914,
                 "paddings": {
                     "xs": {
                         "top": 0,
@@ -510,7 +510,7 @@
         },
         {
             "title": {
-                "uniqueId": 2892877906,
+                "uniqueId": 9474359323,
                 "wwVersion": 3,
                 "content": {
                     "type": "ww-text",
@@ -556,7 +556,7 @@
                 "anim": {}
             },
             "activeTitle": {
-                "uniqueId": 574649854,
+                "uniqueId": 834959624,
                 "wwVersion": 3,
                 "content": {
                     "type": "ww-text",
@@ -603,7 +603,7 @@
             },
             "details": [
                 {
-                    "uniqueId": 7916729481,
+                    "uniqueId": 910408949,
                     "wwVersion": 3,
                     "content": {
                         "type": "ww-text",
@@ -647,13 +647,13 @@
                     "anim": {}
                 },
                 {
-                    "uniqueId": 10316202968,
+                    "uniqueId": 15666707276,
                     "wwVersion": 3,
                     "content": {
                         "type": "ww-button",
                         "data": {
                             "text": {
-                                "uniqueId": 9324893450,
+                                "uniqueId": 7029186594,
                                 "wwVersion": 3,
                                 "content": {
                                     "type": "ww-text",
@@ -744,14 +744,14 @@
             ],
             "contents": [
                 {
-                    "uniqueId": 1516641763,
+                    "uniqueId": 9508450614,
                     "wwVersion": 3,
                     "content": {
                         "type": "ww-text",
                         "data": {
                             "text": {
                                 "fr": "Nouveau texte",
-                                "en": "<font color=\"#808080\">#READY MADE COMPONENTS</font>"
+                                "en": "<font color=\"#808080\">#IntuitiveEditor</font>"
                             },
                             "tag": "div",
                             "align": "",
@@ -788,7 +788,929 @@
                     "anim": {}
                 },
                 {
-                    "uniqueId": 824383315,
+                    "uniqueId": 6259415133,
+                    "wwVersion": 3,
+                    "content": {
+                        "type": "ww-image",
+                        "data": {
+                            "url": "https://cdn.weweb.app/designs/5/sections/EU6AtmssUxQdaHYZAACtrYig9u7gvcAE.png",
+                            "alt": "",
+                            "position": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "pos": {
+                                "left": "0%",
+                                "top": "0%",
+                                "width": "100%",
+                                "height": "100%"
+                            },
+                            "zoom": 1,
+                            "style": {
+                                "borderRadius": 0,
+                                "borderWidth": 0,
+                                "borderColor": "black",
+                                "borderStyle": "none",
+                                "overlay": "",
+                                "filter": "",
+                                "boxShadow": {
+                                    "x": 0,
+                                    "y": 0,
+                                    "b": 5,
+                                    "s": 0,
+                                    "c": "#00000050"
+                                },
+                                "borderRadiusUnit": "%",
+                                "maxHeight": 0
+                            },
+                            "animation": {
+                                "duration": 0,
+                                "delay": 0,
+                                "fn": null,
+                                "opacity": 1,
+                                "scale": 1,
+                                "translateX": 0,
+                                "translateY": 0,
+                                "rotate": 0
+                            },
+                            "imgSize": {
+                                "w": 1920,
+                                "h": 1080
+                            },
+                            "hover": {
+                                "name": "",
+                                "options": {}
+                            },
+                            "focusPoint": [
+                                50,
+                                50
+                            ],
+                            "crop": {
+                                "cw": 99.89189189189189,
+                                "ch": 99.88967884285364,
+                                "cx": 0,
+                                "cy": 0.05516057857318235
+                            }
+                        }
+                    },
+                    "link": {
+                        "type": "none",
+                        "data": {}
+                    },
+                    "ratio": 55.12135311871227,
+                    "paddings": {
+                        "xs": {
+                            "top": 0,
+                            "left": 0,
+                            "right": 0,
+                            "bottom": 200
+                        },
+                        "md": {
+                            "top": 0,
+                            "left": 0,
+                            "right": 0,
+                            "bottom": 200
+                        }
+                    },
+                    "hidden": false,
+                    "tags": [],
+                    "children": {},
+                    "data": {},
+                    "anim": {}
+                }
+            ],
+            "rightBackground": {
+                "uniqueId": 13599162374,
+                "wwVersion": 3,
+                "content": {
+                    "type": "ww-image",
+                    "data": {
+                        "url": "https://cdn.weweb.app/designs/5/sections/3MxIW9PiP72NjtfRk80x8UVsc8AWgs66.png",
+                        "alt": "",
+                        "position": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "pos": {
+                            "left": "0%",
+                            "top": "0%",
+                            "width": "100%",
+                            "height": "100%"
+                        },
+                        "zoom": 1,
+                        "style": {
+                            "borderRadius": 0,
+                            "borderWidth": 0,
+                            "borderColor": null,
+                            "borderStyle": null,
+                            "overlay": null,
+                            "filter": null,
+                            "boxShadow": {
+                                "x": 0,
+                                "y": 0,
+                                "b": 0,
+                                "s": 0,
+                                "c": ""
+                            }
+                        },
+                        "animation": {
+                            "duration": 0,
+                            "delay": 0,
+                            "fn": null,
+                            "opacity": 1,
+                            "scale": 1,
+                            "translateX": 0,
+                            "translateY": 0,
+                            "rotate": 0
+                        },
+                        "imgSize": {
+                            "w": 1920,
+                            "h": 1080
+                        },
+                        "hover": {
+                            "name": "",
+                            "options": {}
+                        },
+                        "focusPoint": [
+                            50,
+                            50
+                        ],
+                        "crop": {
+                            "cw": 99.90089197224975,
+                            "ch": 99.89871201700637,
+                            "cx": 0,
+                            "cy": 0.050643991496807095
+                        }
+                    }
+                },
+                "link": {
+                    "type": "none",
+                    "data": {}
+                },
+                "ratio": 123.83630217136914,
+                "paddings": {
+                    "xs": {
+                        "top": 0,
+                        "left": 0,
+                        "right": 0,
+                        "bottom": 0
+                    },
+                    "md": {
+                        "top": 0,
+                        "left": 0,
+                        "right": 0,
+                        "bottom": 0
+                    }
+                },
+                "hidden": false,
+                "tags": [],
+                "children": {},
+                "data": {},
+                "anim": {}
+            }
+        },
+        {
+            "title": {
+                "uniqueId": 5523001630,
+                "wwVersion": 3,
+                "content": {
+                    "type": "ww-text",
+                    "data": {
+                        "fr": "Nouveau texte",
+                        "en": "New text",
+                        "text": {
+                            "fr": "Nouveau texte",
+                            "en": "<span style=\"font-size:1.5rem\"><font color=\"#5e5e5e\">01 UNLEASH CREATIVITY</font></span>"
+                        },
+                        "tag": "div",
+                        "align": "",
+                        "font": "",
+                        "size": "",
+                        "color": "",
+                        "classes": [],
+                        "children": []
+                    }
+                },
+                "link": {
+                    "type": "none",
+                    "data": {}
+                },
+                "ratio": -1,
+                "paddings": {
+                    "xs": {
+                        "top": 0,
+                        "left": 0,
+                        "right": 0,
+                        "bottom": 0
+                    },
+                    "md": {
+                        "top": 0,
+                        "left": 0,
+                        "right": 0,
+                        "bottom": 0
+                    }
+                },
+                "hidden": false,
+                "tags": [],
+                "children": {},
+                "data": {},
+                "anim": {}
+            },
+            "activeTitle": {
+                "uniqueId": 10379627827,
+                "wwVersion": 3,
+                "content": {
+                    "type": "ww-text",
+                    "data": {
+                        "fr": "Nouveau texte",
+                        "en": "New text",
+                        "text": {
+                            "fr": "Nouveau texte",
+                            "en": "<span style=\"font-size:1.5rem\"><font color=\"#5e5e5e\">01</font> <font color=\"#19947c\">UNLEASH CREATIVITY</font></span>"
+                        },
+                        "tag": "div",
+                        "align": "",
+                        "font": "",
+                        "size": "",
+                        "color": "",
+                        "classes": [],
+                        "children": []
+                    }
+                },
+                "link": {
+                    "type": "none",
+                    "data": {}
+                },
+                "ratio": -1,
+                "paddings": {
+                    "xs": {
+                        "top": 0,
+                        "left": 0,
+                        "right": 0,
+                        "bottom": 0
+                    },
+                    "md": {
+                        "top": 0,
+                        "left": 0,
+                        "right": 0,
+                        "bottom": 0
+                    }
+                },
+                "hidden": false,
+                "tags": [],
+                "children": {},
+                "data": {},
+                "anim": {}
+            },
+            "details": [
+                {
+                    "uniqueId": 13355460754,
+                    "wwVersion": 3,
+                    "content": {
+                        "type": "ww-text",
+                        "data": {
+                            "text": {
+                                "fr": "Nouveau texte",
+                                "en": "Enjoy a library of responsive components ready to be used for your front-end, \nall open-source"
+                            },
+                            "tag": "div",
+                            "align": "",
+                            "font": "",
+                            "size": "",
+                            "color": "",
+                            "classes": [],
+                            "children": []
+                        }
+                    },
+                    "link": {
+                        "type": "none",
+                        "data": {}
+                    },
+                    "ratio": -1,
+                    "paddings": {
+                        "xs": {
+                            "top": 20,
+                            "left": 0,
+                            "right": 0,
+                            "bottom": 20
+                        },
+                        "md": {
+                            "top": 20,
+                            "left": 0,
+                            "right": 0,
+                            "bottom": 20
+                        }
+                    },
+                    "hidden": false,
+                    "tags": [],
+                    "children": {},
+                    "data": {},
+                    "anim": {}
+                },
+                {
+                    "uniqueId": 1708366066,
+                    "wwVersion": 3,
+                    "content": {
+                        "type": "ww-button",
+                        "data": {
+                            "text": {
+                                "uniqueId": 3298719467,
+                                "wwVersion": 3,
+                                "content": {
+                                    "type": "ww-text",
+                                    "data": {
+                                        "text": {
+                                            "fr": "Nouveau bouton",
+                                            "en": "<font color=\"#ffffff\">PARSE THE STORE</font>"
+                                        },
+                                        "tag": "div",
+                                        "align": "",
+                                        "font": "",
+                                        "size": "",
+                                        "color": "",
+                                        "classes": [],
+                                        "children": []
+                                    }
+                                },
+                                "link": {
+                                    "type": "none",
+                                    "data": {}
+                                },
+                                "ratio": -1,
+                                "paddings": {
+                                    "xs": {
+                                        "top": 0,
+                                        "left": 0,
+                                        "right": 0,
+                                        "bottom": 0
+                                    },
+                                    "md": {
+                                        "top": 0,
+                                        "left": 0,
+                                        "right": 0,
+                                        "bottom": 0
+                                    }
+                                },
+                                "hidden": false,
+                                "tags": [],
+                                "children": {},
+                                "data": {},
+                                "anim": {}
+                            },
+                            "style": {
+                                "backgroundColor": "#19947C",
+                                "gradient": {},
+                                "borderRadius": 50,
+                                "borderWidth": 0,
+                                "borderColor": "#000000",
+                                "borderStyle": "none",
+                                "padding": 25,
+                                "justify": null,
+                                "boxShadow": {
+                                    "x": 0,
+                                    "y": 0,
+                                    "b": 0,
+                                    "s": 0,
+                                    "c": ""
+                                }
+                            },
+                            "fullWidth": false
+                        }
+                    },
+                    "link": {
+                        "type": "none",
+                        "data": {}
+                    },
+                    "ratio": -1,
+                    "paddings": {
+                        "xs": {
+                            "top": 0,
+                            "left": 0,
+                            "right": 0,
+                            "bottom": 0
+                        },
+                        "md": {
+                            "top": 0,
+                            "left": 0,
+                            "right": 0,
+                            "bottom": 0
+                        }
+                    },
+                    "hidden": false,
+                    "tags": [],
+                    "children": {},
+                    "data": {},
+                    "anim": {}
+                }
+            ],
+            "contents": [
+                {
+                    "uniqueId": 12628578747,
+                    "wwVersion": 3,
+                    "content": {
+                        "type": "ww-text",
+                        "data": {
+                            "text": {
+                                "fr": "Nouveau texte",
+                                "en": "<font color=\"#808080\">#UseYourOwnComponents</font>"
+                            },
+                            "tag": "div",
+                            "align": "",
+                            "font": "",
+                            "size": "",
+                            "color": "",
+                            "classes": [],
+                            "children": []
+                        }
+                    },
+                    "link": {
+                        "type": "none",
+                        "data": {}
+                    },
+                    "ratio": -1,
+                    "paddings": {
+                        "xs": {
+                            "top": 0,
+                            "left": 0,
+                            "right": 0,
+                            "bottom": 5
+                        },
+                        "md": {
+                            "top": 0,
+                            "left": 0,
+                            "right": 0,
+                            "bottom": 5
+                        }
+                    },
+                    "hidden": false,
+                    "tags": [],
+                    "children": {},
+                    "data": {},
+                    "anim": {}
+                },
+                {
+                    "uniqueId": 4739456360,
+                    "wwVersion": 3,
+                    "content": {
+                        "type": "ww-image",
+                        "data": {
+                            "url": "https://cdn.weweb.app/designs/5/sections/XhHCZtBURe8GjWxnF96w5hQHicBpSDlT.png",
+                            "alt": "",
+                            "position": {
+                                "x": 0,
+                                "y": 0
+                            },
+                            "pos": {
+                                "left": "0%",
+                                "top": "0%",
+                                "width": "100%",
+                                "height": "100%"
+                            },
+                            "zoom": 1,
+                            "style": {
+                                "borderRadius": 0,
+                                "borderWidth": 0,
+                                "borderColor": "black",
+                                "borderStyle": "none",
+                                "overlay": "",
+                                "filter": "",
+                                "boxShadow": {
+                                    "x": 0,
+                                    "y": 0,
+                                    "b": 5,
+                                    "s": 0,
+                                    "c": "#00000050"
+                                },
+                                "borderRadiusUnit": "%",
+                                "maxHeight": 0
+                            },
+                            "animation": {
+                                "duration": 0,
+                                "delay": 0,
+                                "fn": null,
+                                "opacity": 1,
+                                "scale": 1,
+                                "translateX": 0,
+                                "translateY": 0,
+                                "rotate": 0
+                            },
+                            "imgSize": {
+                                "w": 1920,
+                                "h": 1080
+                            },
+                            "hover": {
+                                "name": "",
+                                "options": {}
+                            },
+                            "focusPoint": [
+                                50,
+                                50
+                            ],
+                            "crop": {
+                                "cw": 99.89189189189189,
+                                "ch": 99.88967884285364,
+                                "cx": 0,
+                                "cy": 0.05516057857318235
+                            }
+                        }
+                    },
+                    "link": {
+                        "type": "none",
+                        "data": {}
+                    },
+                    "ratio": 55.12135311871227,
+                    "paddings": {
+                        "xs": {
+                            "top": 0,
+                            "left": 0,
+                            "right": 0,
+                            "bottom": 200
+                        },
+                        "md": {
+                            "top": 0,
+                            "left": 0,
+                            "right": 0,
+                            "bottom": 200
+                        }
+                    },
+                    "hidden": false,
+                    "tags": [],
+                    "children": {},
+                    "data": {},
+                    "anim": {}
+                }
+            ],
+            "rightBackground": {
+                "uniqueId": 23224329,
+                "wwVersion": 3,
+                "content": {
+                    "type": "ww-image",
+                    "data": {
+                        "url": "https://cdn.weweb.app/designs/5/sections/gGwIGW7PiaTtjS6lnK2xACaoZlX9ncy3.png",
+                        "alt": "",
+                        "position": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "pos": {
+                            "left": "0%",
+                            "top": "0%",
+                            "width": "100%",
+                            "height": "100%"
+                        },
+                        "zoom": 1,
+                        "style": {
+                            "borderRadius": 0,
+                            "borderWidth": 0,
+                            "borderColor": null,
+                            "borderStyle": null,
+                            "overlay": null,
+                            "filter": null,
+                            "boxShadow": {
+                                "x": 0,
+                                "y": 0,
+                                "b": 0,
+                                "s": 0,
+                                "c": ""
+                            }
+                        },
+                        "animation": {
+                            "duration": 0,
+                            "delay": 0,
+                            "fn": null,
+                            "opacity": 1,
+                            "scale": 1,
+                            "translateX": 0,
+                            "translateY": 0,
+                            "rotate": 0
+                        },
+                        "imgSize": {
+                            "w": 1920,
+                            "h": 1080
+                        },
+                        "hover": {
+                            "name": "",
+                            "options": {}
+                        },
+                        "focusPoint": [
+                            50,
+                            50
+                        ],
+                        "crop": {
+                            "cw": 99.90089197224975,
+                            "ch": 99.89871201700637,
+                            "cx": 0,
+                            "cy": 0.050643991496807095
+                        }
+                    }
+                },
+                "link": {
+                    "type": "none",
+                    "data": {}
+                },
+                "ratio": 124.68794695098167,
+                "paddings": {
+                    "xs": {
+                        "top": 0,
+                        "left": 0,
+                        "right": 0,
+                        "bottom": 0
+                    },
+                    "md": {
+                        "top": 0,
+                        "left": 0,
+                        "right": 0,
+                        "bottom": 0
+                    }
+                },
+                "hidden": false,
+                "tags": [],
+                "children": {},
+                "data": {},
+                "anim": {}
+            }
+        },
+        {
+            "title": {
+                "uniqueId": 4842703055,
+                "wwVersion": 3,
+                "content": {
+                    "type": "ww-text",
+                    "data": {
+                        "fr": "Nouveau texte",
+                        "en": "New text",
+                        "text": {
+                            "fr": "Nouveau texte",
+                            "en": "<span style=\"font-size:1.5rem\"><font color=\"#5e5e5e\">01 GO LIVE IN ONE CLICK</font></span>"
+                        },
+                        "tag": "div",
+                        "align": "",
+                        "font": "",
+                        "size": "",
+                        "color": "",
+                        "classes": [],
+                        "children": []
+                    }
+                },
+                "link": {
+                    "type": "none",
+                    "data": {}
+                },
+                "ratio": -1,
+                "paddings": {
+                    "xs": {
+                        "top": 0,
+                        "left": 0,
+                        "right": 0,
+                        "bottom": 0
+                    },
+                    "md": {
+                        "top": 0,
+                        "left": 0,
+                        "right": 0,
+                        "bottom": 0
+                    }
+                },
+                "hidden": false,
+                "tags": [],
+                "children": {},
+                "data": {},
+                "anim": {}
+            },
+            "activeTitle": {
+                "uniqueId": 13997027903,
+                "wwVersion": 3,
+                "content": {
+                    "type": "ww-text",
+                    "data": {
+                        "fr": "Nouveau texte",
+                        "en": "New text",
+                        "text": {
+                            "fr": "Nouveau texte",
+                            "en": "<span style=\"font-size:1.5rem\"><font color=\"#5e5e5e\">01</font> <font color=\"#dc9e04\">GO LIVE IN ONE CLICK</font></span>"
+                        },
+                        "tag": "div",
+                        "align": "",
+                        "font": "",
+                        "size": "",
+                        "color": "",
+                        "classes": [],
+                        "children": []
+                    }
+                },
+                "link": {
+                    "type": "none",
+                    "data": {}
+                },
+                "ratio": -1,
+                "paddings": {
+                    "xs": {
+                        "top": 0,
+                        "left": 0,
+                        "right": 0,
+                        "bottom": 0
+                    },
+                    "md": {
+                        "top": 0,
+                        "left": 0,
+                        "right": 0,
+                        "bottom": 0
+                    }
+                },
+                "hidden": false,
+                "tags": [],
+                "children": {},
+                "data": {},
+                "anim": {}
+            },
+            "details": [
+                {
+                    "uniqueId": 5278799129,
+                    "wwVersion": 3,
+                    "content": {
+                        "type": "ww-text",
+                        "data": {
+                            "text": {
+                                "fr": "Nouveau texte",
+                                "en": "Enjoy a library of responsive components ready to be used for your front-end, \nall open-source"
+                            },
+                            "tag": "div",
+                            "align": "",
+                            "font": "",
+                            "size": "",
+                            "color": "",
+                            "classes": [],
+                            "children": []
+                        }
+                    },
+                    "link": {
+                        "type": "none",
+                        "data": {}
+                    },
+                    "ratio": -1,
+                    "paddings": {
+                        "xs": {
+                            "top": 20,
+                            "left": 0,
+                            "right": 0,
+                            "bottom": 20
+                        },
+                        "md": {
+                            "top": 20,
+                            "left": 0,
+                            "right": 0,
+                            "bottom": 20
+                        }
+                    },
+                    "hidden": false,
+                    "tags": [],
+                    "children": {},
+                    "data": {},
+                    "anim": {}
+                },
+                {
+                    "uniqueId": 2329179239,
+                    "wwVersion": 3,
+                    "content": {
+                        "type": "ww-button",
+                        "data": {
+                            "text": {
+                                "uniqueId": 4752805469,
+                                "wwVersion": 3,
+                                "content": {
+                                    "type": "ww-text",
+                                    "data": {
+                                        "text": {
+                                            "fr": "Nouveau bouton",
+                                            "en": "<font color=\"#ffffff\">PARSE THE STORE</font>"
+                                        },
+                                        "tag": "div",
+                                        "align": "",
+                                        "font": "",
+                                        "size": "",
+                                        "color": "",
+                                        "classes": [],
+                                        "children": []
+                                    }
+                                },
+                                "link": {
+                                    "type": "none",
+                                    "data": {}
+                                },
+                                "ratio": -1,
+                                "paddings": {
+                                    "xs": {
+                                        "top": 0,
+                                        "left": 0,
+                                        "right": 0,
+                                        "bottom": 0
+                                    },
+                                    "md": {
+                                        "top": 0,
+                                        "left": 0,
+                                        "right": 0,
+                                        "bottom": 0
+                                    }
+                                },
+                                "hidden": false,
+                                "tags": [],
+                                "children": {},
+                                "data": {},
+                                "anim": {}
+                            },
+                            "style": {
+                                "backgroundColor": "#DC9E04",
+                                "gradient": {},
+                                "borderRadius": 50,
+                                "borderWidth": 0,
+                                "borderColor": "#000000",
+                                "borderStyle": "none",
+                                "padding": 25,
+                                "justify": null,
+                                "boxShadow": {
+                                    "x": 0,
+                                    "y": 0,
+                                    "b": 0,
+                                    "s": 0,
+                                    "c": ""
+                                }
+                            },
+                            "fullWidth": false
+                        }
+                    },
+                    "link": {
+                        "type": "none",
+                        "data": {}
+                    },
+                    "ratio": -1,
+                    "paddings": {
+                        "xs": {
+                            "top": 0,
+                            "left": 0,
+                            "right": 0,
+                            "bottom": 0
+                        },
+                        "md": {
+                            "top": 0,
+                            "left": 0,
+                            "right": 0,
+                            "bottom": 0
+                        }
+                    },
+                    "hidden": false,
+                    "tags": [],
+                    "children": {},
+                    "data": {},
+                    "anim": {}
+                }
+            ],
+            "contents": [
+                {
+                    "uniqueId": 11349867125,
+                    "wwVersion": 3,
+                    "content": {
+                        "type": "ww-text",
+                        "data": {
+                            "text": {
+                                "fr": "Nouveau texte",
+                                "en": "<font color=\"#808080\">#Performance #NoMaintenance</font>"
+                            },
+                            "tag": "div",
+                            "align": "",
+                            "font": "",
+                            "size": "",
+                            "color": "",
+                            "classes": [],
+                            "children": []
+                        }
+                    },
+                    "link": {
+                        "type": "none",
+                        "data": {}
+                    },
+                    "ratio": -1,
+                    "paddings": {
+                        "xs": {
+                            "top": 0,
+                            "left": 0,
+                            "right": 0,
+                            "bottom": 5
+                        },
+                        "md": {
+                            "top": 0,
+                            "left": 0,
+                            "right": 0,
+                            "bottom": 5
+                        }
+                    },
+                    "hidden": false,
+                    "tags": [],
+                    "children": {},
+                    "data": {},
+                    "anim": {}
+                },
+                {
+                    "uniqueId": 13905781220,
                     "wwVersion": 3,
                     "content": {
                         "type": "ww-image",
@@ -880,12 +1802,12 @@
                 }
             ],
             "rightBackground": {
-                "uniqueId": 7129629597,
+                "uniqueId": 1253084164,
                 "wwVersion": 3,
                 "content": {
                     "type": "ww-image",
                     "data": {
-                        "url": "https://cdn.weweb.app/designs/5/sections/AmYzGuvJLIuRi71MfWpicDFcDVV57Apl.png",
+                        "url": "https://cdn.weweb.app/designs/5/sections/jQuFwUN2tQVnVjBVfyqXHYQZJw3eYAsp.png",
                         "alt": "",
                         "position": {
                             "x": 0,
@@ -936,10 +1858,10 @@
                             50
                         ],
                         "crop": {
-                            "cw": 99.8516733104663,
-                            "ch": 84.16456660610677,
+                            "cw": 99.90089197224975,
+                            "ch": 99.89871201700637,
                             "cx": 0,
-                            "cy": 7.917716696946608
+                            "cy": 0.050643991496807095
                         }
                     }
                 },
@@ -947,7 +1869,7 @@
                     "type": "none",
                     "data": {}
                 },
-                "ratio": 123.83677062374245,
+                "ratio": 123.83630217136914,
                 "paddings": {
                     "xs": {
                         "top": 0,
