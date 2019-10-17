@@ -163,16 +163,12 @@ export default {
         }
     },
     mounted() {
-        // fixed-right-container has to have the same height as the right-content
-        setTimeout(() => {
-            const fixedRightContainerElement = this.$el.querySelector('.fixed-right-container')
-            const rightContainerElement = this.$el.querySelector('.right-content')
-            console.log(fixedRightContainerElement.getBoundingClientRect().height, rightContainerElement.getBoundingClientRect().height)
-        }, 2000);
-
         let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop
+        const self = this;
+        this.activeFeatureIndex = 0;
+        let activeDetailElement = this.$refs[`detail_${(this.activeFeatureIndex)}`][0]
+        this.activeHeight = activeDetailElement.offsetHeight
         window.addEventListener('scroll', this.onScroll)
-        this.setFeatureActive(0)
     },
     beforeDestroy() {
         window.removeEventListener('scroll', this.onScroll)
