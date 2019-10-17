@@ -95,7 +95,7 @@ export default {
     },
     data() {
         return {
-            activeFeatureIndex: 0,
+            activeFeatureIndex: -1,
             lastScrollTop: 0,
             onTheMove: false,
             features: [],
@@ -172,6 +172,7 @@ export default {
 
         let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop
         window.addEventListener('scroll', this.onScroll)
+        this.setFeatureActive(0)
     },
     beforeDestroy() {
         window.removeEventListener('scroll', this.onScroll)
@@ -243,6 +244,7 @@ export default {
 
             if (scrollTop > this.lastScrollTop) {
                 // scrolling down
+                if (this.activeFeatureIndex == -1) return;
                 if (this.activeFeatureIndex == this.features.length - 1) return;
 
                 let featureWatched = this.$refs[`content_${(this.activeFeatureIndex + 1)}`][0]
@@ -252,11 +254,10 @@ export default {
 
             } else {
                 // scrolling up
-                if (this.activeFeatureIndex == 0) return;
+                if (this.activeFeatureIndex == 0 || this.activeFeatureIndex == -1) return;
 
                 let featureWatched = this.$refs[`content_${(this.activeFeatureIndex)}`][0]
-                if (Math.round(featureWatched.getBoundingClientRect().top) > Math.round(window.innerHeight / 2) && !this.onTheMove) {
-                    this.onTheMove = true;
+                if (Math.round(featureWatched.getBoundingClientRect().top) > Math.round(window.innerHeight / 2)) {
                     this.nextFeature('previous')
                 }
             }
@@ -303,12 +304,15 @@ export default {
             width: 100%;
             .fixed-left-container {
                 position: absolute;
-                width: 35%;
+                width: 45%;
                 height: 100%;
                 margin-left: 5%;
                 top: 0;
                 left: 0;
                 padding-right: 80px;
+                @media (min-width: 1200px) {
+                    width: 35%;
+                }
                 .fixed-left {
                     position: sticky;
                     padding-top: 150px;
@@ -340,11 +344,14 @@ export default {
             }
             .fixed-right-container {
                 position: absolute;
-                width: 60%;
+                width: 50%;
                 min-height: 100vh;
                 height: 100%;
                 top: 0;
                 right: 0;
+                @media (min-width: 1200px) {
+                    width: 60%;
+                }
                 .fixed-right {
                     position: sticky;
                     top: 50px;
@@ -391,9 +398,13 @@ export default {
         .right-content {
             z-index: 2;
             position: relative;
-            width: 55%;
-            margin-left: 40%;
+            width: 50%;
+            margin-left: 45%;
             padding-top: 150px;
+            @media (min-width: 1200px) {
+                width: 55%;
+                margin-left: 40%;
+            }
             .content-container {
                 position: relative;
             }

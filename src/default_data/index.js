@@ -1,11 +1,11 @@
 module.exports = [
     {
-        name: 'my_section',
+        name: 'scroll_feature',
         storeName: {
-            en_GB: "My first section"
+            en_GB: "Feature section with scroll animation"
         },
         storeDesc: {
-            en_GB: "Template for my first section"
+            en_GB: "Feature section with scroll animation"
         }
     }
 ]
